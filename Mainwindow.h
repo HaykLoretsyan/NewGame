@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QGraphicsView>
+#include <QGraphicsScene>
 
 namespace Ui {
 class MainWindow;
@@ -13,10 +15,11 @@ class MainWindow : public QMainWindow
 
 public:
     explicit MainWindow(QWidget *parent = 0);
-    ~MainWindow();
+    ~MainWindow();    
 
 private:
-    Ui::MainWindow *ui;
+    QGraphicsView* view;
+
 };
 
 #endif // MAINWINDOW_H

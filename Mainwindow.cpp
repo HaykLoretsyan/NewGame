@@ -1,14 +1,18 @@
-#include "mainwindow.h"
+#include "Mainwindow.h"
 #include "ui_mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::MainWindow)
+    view(new QGraphicsView(this))
 {
-    ui->setupUi(this);
+    setWindowState(Qt::WindowFullScreen);
+
+    view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+
+    setCentralWidget(view);
 }
 
 MainWindow::~MainWindow()
 {
-    delete ui;
 }

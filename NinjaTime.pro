@@ -5,6 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui
+qtHaveModule(opengl): QT += opengl
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -29,11 +30,6 @@ SOURCES += \
     Mainwindow.cpp \
     Player.cpp \
     Skill.cpp \
-    Fight.cpp \
-    main.cpp \
-    Mainwindow.cpp \
-    Player.cpp \
-    Skill.cpp \
     NinjaAttributes/Character.cpp \
     NinjaAttributes/Abilities.cpp
 
@@ -42,12 +38,7 @@ HEADERS += \
     Mainwindow.h \
     Player.h \
     Skill.h \
-    Fight.h \
-    Mainwindow.h \
-    Player.h \
-    Skill.h \
     NinjaAttributes/Character.h \
     NinjaAttributes/Abilities.h
 
-FORMS += \
-        mainwindow.ui
+FORMS +=

@@ -1,4 +1,4 @@
-#include "skill.h"
+#include "Skill.h"
 
 Skill::Skill()
 {
