@@ -28,13 +28,26 @@ SOURCES += \
     Fight.cpp \
     Mainwindow.cpp \
     Player.cpp \
-    Skill.cpp
+    Skill.cpp \
+    Fight.cpp \
+    main.cpp \
+    Mainwindow.cpp \
+    Player.cpp \
+    Skill.cpp \
+    NinjaAttributes/Character.cpp \
+    NinjaAttributes/Abilities.cpp
 
 HEADERS += \
     Fight.h \
     Mainwindow.h \
     Player.h \
-    Skill.h
+    Skill.h \
+    Fight.h \
+    Mainwindow.h \
+    Player.h \
+    Skill.h \
+    NinjaAttributes/Character.h \
+    NinjaAttributes/Abilities.h
 
 FORMS += \
         mainwindow.ui
