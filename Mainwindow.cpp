@@ -11,8 +11,16 @@ MainWindow::MainWindow(QWidget *parent) :
     view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
     setCentralWidget(view);
+
+    connect(&SceneManager::instance(), &SceneManager::sceneChanged,
+            this, &MainWindow::On_sceneChanged);
 }
 
 MainWindow::~MainWindow()
 {
+}
+
+void MainWindow::On_sceneChanged(QGraphicsScene* scene)
+{
+    view->setScene(scene);
 }

@@ -6,6 +6,7 @@
 
 QT       += core gui
 qtHaveModule(opengl): QT += opengl
+QT += sql network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -28,17 +29,33 @@ SOURCES += \
         main.cpp \
     Fight.cpp \
     Mainwindow.cpp \
-    Player.cpp \
-    Skill.cpp \
-    NinjaAttributes/Character.cpp \
-    NinjaAttributes/Abilities.cpp
+    SceneManager.cpp \
+    PlayerAttributes/Character.cpp \
+    PlayerAttributes/Player.cpp \
+    NinjaSkills/Skill.cpp \
+    NinjaSkills/SkillEffect.cpp \
+    Buildings/Boutique.cpp \
+    Buildings/SkillAcademy.cpp \
+    Buildings/Weaponry.cpp \
+    Buildings/Arena.cpp \
+    ResourceManager.cpp
+
 
 HEADERS += \
     Fight.h \
     Mainwindow.h \
-    Player.h \
-    Skill.h \
-    NinjaAttributes/Character.h \
-    NinjaAttributes/Abilities.h
+    SceneManager.h \
+    PlayerAttributes/NinjaCharacteristics.h \
+    PlayerAttributes/Character.h \
+    PlayerAttributes/Player.h \
+    NinjaSkills/Skill.h \
+    NinjaSkills/SkillCharacteristics.h \
+    NinjaSkills/SkillEffect.h \
+    Buildings/Boutique.h \
+    Buildings/SkillAcademy.h \
+    Buildings/Weaponry.h \
+    Buildings/Arena.h \
+    ResourceManager.h \
+    CustomExceptions.h
 
 FORMS +=

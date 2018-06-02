@@ -5,6 +5,9 @@
 #include <QGraphicsView>
 #include <QGraphicsScene>
 
+#include "SceneManager.h"
+
+
 namespace Ui {
 class MainWindow;
 }
@@ -16,6 +19,9 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();    
+
+public slots:
+    void On_sceneChanged(QGraphicsScene *scene);
 
 private:
     QGraphicsView* view;
