@@ -26,4 +26,20 @@ private:
     bool m_isNetwork;
 };
 
+
+class IncompatibleWithServerException : public QException
+{
+public:
+    IncompatibleWithServerException() {}
+
+public:
+public:
+    void raise() const { throw *this; }
+    IncompatibleWithServerException *clone() const { return new IncompatibleWithServerException(*this); }
+
+    QString message() const {
+        return QString("Data incompatible with server");
+    }
+};
+
 #endif // CUSTOMEXCEPTIONS_H

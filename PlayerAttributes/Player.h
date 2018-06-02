@@ -1,13 +1,16 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
+#include <QObject>
 #include <QString>
 
 #include "NinjaCharacteristics.h"
 
 
-class Player
+class Player : public QObject
 {
+    Q_OBJECT
+
 public:
     Player(QString accountName);
 

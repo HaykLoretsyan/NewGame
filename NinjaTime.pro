@@ -38,7 +38,8 @@ SOURCES += \
     Buildings/SkillAcademy.cpp \
     Buildings/Weaponry.cpp \
     Buildings/Arena.cpp \
-    ResourceManager.cpp
+    ResourceManager.cpp \
+    PlayerAttributes/MoneyBag.cpp
 
 
 HEADERS += \
@@ -56,6 +57,7 @@ HEADERS += \
     Buildings/Weaponry.h \
     Buildings/Arena.h \
     ResourceManager.h \
-    CustomExceptions.h
+    CustomExceptions.h \
+    PlayerAttributes/MoneyBag.h
 
 FORMS +=
