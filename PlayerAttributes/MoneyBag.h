@@ -3,26 +3,21 @@
 
 #include <QString>
 
-#include "ResourceManager.h"
-
+#include "Items/Money.h"
 
 class MoneyBag
 {
 public:
-    MoneyBag(QString accountName);
+    MoneyBag(Money money);
 
-    bool idPurchasable();
-    void purchase();
+
+    Money money() const;
+
+    bool isPurchasable(Money cost);
+    void purchase(Money cost);
 
 private:
-    QString m_accountName;
-
-    unsigned m_gold;
-    unsigned m_token;
-
-    unsigned m_redGem;
-    unsigned m_blueGem;
-    unsigned m_greenGem;
+    Money m_money;
 };
 
 #endif // MONEYBAG_H

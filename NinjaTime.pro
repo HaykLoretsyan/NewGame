@@ -39,7 +39,9 @@ SOURCES += \
     Buildings/Weaponry.cpp \
     Buildings/Arena.cpp \
     ResourceManager.cpp \
-    PlayerAttributes/MoneyBag.cpp
+    PlayerAttributes/MoneyBag.cpp \
+    Items/Item.cpp \
+    PlayerAttributes/ItemBag.cpp
 
 
 HEADERS += \
@@ -58,6 +60,9 @@ HEADERS += \
     Buildings/Arena.h \
     ResourceManager.h \
     CustomExceptions.h \
-    PlayerAttributes/MoneyBag.h
+    PlayerAttributes/MoneyBag.h \
+    Items/Item.h \
+    Items/Money.h \
+    PlayerAttributes/ItemBag.h
 
 FORMS +=

@@ -8,6 +8,7 @@
 #include "CustomExceptions.h"
 #include "PlayerAttributes/Player.h"
 #include "PlayerAttributes/MoneyBag.h"
+#include "Items/Item.h"
 
 
 class ResourceManager
@@ -29,12 +30,7 @@ public:
     Player* playerByAccountName(QString accountName);
     MoneyBag* moneyBagByAccountName(QString accountName);
 
-    void updateAccountMoney(QString accountName,
-                            unsigned goldSpent,
-                            unsigned tokenSpent,
-                            unsigned redGemSpent,
-                            unsigned blueGemSpent,
-                            unsigned greenGemSpent);
+    void updateAccountMoney(QString accountName, Money money);
 
 private:
     void initDatabase() throw(ReourceInitException);

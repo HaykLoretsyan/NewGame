@@ -39,20 +39,11 @@ MoneyBag *ResourceManager::moneyBagByAccountName(QString accountName)
     return nullptr;
 }
 
-void ResourceManager::updateAccountMoney(QString accountName,
-                                         unsigned goldSpent,
-                                         unsigned tokenSpent,
-                                         unsigned redGemSpent,
-                                         unsigned blueGemSpent,
-                                         unsigned greenGemSpent)
+void ResourceManager::updateAccountMoney(QString accountName, Money money)
 {
     // TODO update account's money bag
     Q_UNUSED(accountName)
-    Q_UNUSED(goldSpent)
-    Q_UNUSED(tokenSpent)
-    Q_UNUSED(redGemSpent)
-    Q_UNUSED(blueGemSpent)
-    Q_UNUSED(greenGemSpent)
+    Q_UNUSED(money)
 
     throw IncompatibleWithServerException();
 }
