@@ -7,20 +7,20 @@
 
 #include "SkillEffect.h"
 
+#include "Items/Money.h"
+
 struct SkillCharacteristics
 {
     QString name;
     QString description;
 
     QPixmap* icon;
-
-    unsigned costInGold;
-    unsigned costInTokens;
+    Money cost;
 
     unsigned damage;
-    unsigned accuracy;
-
-    QVector<SkillEffect> effects;
+    unsigned energyConsume;
+    QVector<SkillEffect> rivalEffects;
+    QVector<SkillEffect> selfEffects;
 };
 
 #endif // SKILLCHARACTERISTICS_H

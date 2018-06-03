@@ -1,6 +1,9 @@
 #ifndef CITY_H
 #define CITY_H
 
+#include <QBrush>
+#include <QColor>
+
 #include "Scene.h"
 
 #include "PlayerAttributes/Player.h"

@@ -4,17 +4,11 @@
 #include <QMap>
 
 #include "Item.h"
+#include "NinjaSkills/SkillEffect.h"
 
 
 class Gear : public Item
 {
-public:
-    enum class EFFECT
-    {
-        HealthRegeneration,
-        EnergyRegeneration,
-        DamageProtection
-    };
 
 public:
     Gear(QString name,
@@ -23,15 +17,15 @@ public:
 
     Gear(const Gear & other);
 
-    void addEffect(Gear::EFFECT effect, unsigned power);
-    QMap<EFFECT, unsigned> effects() const;
+    void addEffect(SkillEffect effect);
+    QMap<SkillEffect::Type, SkillEffect> effects() const;
 
     unsigned healthRegeneration() const;
     unsigned energyRegeneration() const;
     unsigned damageProtection() const;
 
 private:
-    QMap<EFFECT, unsigned> m_effects;
+    QMap<SkillEffect::Type, SkillEffect> m_effects;
 };
 
 #endif // GEAR_H

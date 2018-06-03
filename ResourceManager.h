@@ -6,10 +6,11 @@
 #include <QSettings>
 #include <QString>
 
+#include "Items/Item.h"
 #include "CustomExceptions.h"
 #include "PlayerAttributes/Player.h"
 #include "PlayerAttributes/MoneyBag.h"
-#include "Items/Item.h"
+#include "PlayerAttributes/ItemBag.h"
 
 
 class ResourceManager
@@ -35,6 +36,7 @@ public:
     Player* player();
     Player* playerByAccountName(QString accountName);
     MoneyBag* moneyBagByAccountName(QString accountName);
+    ItemBag* itemBagByAccountName(QString accountName);
 
     void updateAccountData(Player* player);
     void updateAccountMoney(QString accountName, Money money);

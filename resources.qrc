@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Resources/ninjas.gif</file>
+    </qresource>
+</RCC>

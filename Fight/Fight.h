@@ -1,27 +1,32 @@
 #ifndef FIGHT_H
 #define FIGHT_H
 
-#include <QThread>
+#include <QObject>
 #include <QMap>
 
 #include "PlayerAttributes/Player.h"
 #include "NinjaSkills/Skill.h"
 #include "NinjaSkills/SkillEffect.h"
+#include "NinjaState.h"
 
 
-class Fight : public QThread
+class Fight : public QObject
 {
-    enum class PlayerSide
-    {
-        READ,
-        BLUE
-    };
+    Q_OBJECT
 
 public:
     Fight(QVector<Player*> firstTeam, QVector<Player*> secondTeam);
 
+    QMap<Player*, NinjaState*> allPlayers() const;
+
+public slots:
+    void start();
+    void end();
+
 private:
-    QMap<Player*, PlayerSide> m_allPlayers;
+    QMap<Player*, NinjaState*> m_allPlayers;
+
+    unsigned timeToHit;
 
 };
 

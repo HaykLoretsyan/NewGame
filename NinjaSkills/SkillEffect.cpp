@@ -1,11 +1,16 @@
 #include "SkillEffect.h"
 
+SkillEffect::SkillEffect()
+{
+
+}
+
 SkillEffect::SkillEffect(Type type,
                          unsigned duration,
                          unsigned level) :
     m_type(type),
     m_duration(duration),
-    m_level(level)
+    m_power(level)
 {
 
 }
@@ -35,12 +40,12 @@ void SkillEffect::setDuration(const unsigned &value)
     m_duration = value;
 }
 
-unsigned SkillEffect::level() const
+unsigned SkillEffect::power() const
 {
-    return m_level;
+    return m_power;
 }
 
-void SkillEffect::setLevel(const unsigned &value)
+void SkillEffect::setPower(const unsigned &value)
 {
-    m_level = value;
+    m_power = value;
 }

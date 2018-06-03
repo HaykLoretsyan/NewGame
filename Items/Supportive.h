@@ -4,19 +4,11 @@
 #include <QMap>
 
 #include "Item.h"
+#include "NinjaSkills/SkillEffect.h"
 
 
 class Supportive : public Item
 {
-public:
-    enum class EFFECT
-    {
-        HealthGain,
-        EnergyGain,
-        HealthRegeneration,
-        EnergyRegeneration
-    };
-
 public:
     Supportive(QString name,
                Money cost,
@@ -24,16 +16,19 @@ public:
 
     Supportive(const Supportive & other);
 
-    void addEffect(EFFECT effect, unsigned power);
-    QMap<EFFECT, unsigned> effects() const;
+    void addEffect(SkillEffect effect);
+    QMap<SkillEffect::Type, SkillEffect> effects() const;
 
     unsigned healthGain() const;
     unsigned energyGain() const;
-    unsigned healthRegeneration() const;
-    unsigned energyRegeneration() const;
+
+    unsigned healthRegenerationDuration() const;
+    unsigned healthRegenerationPower() const;
+    unsigned energyRegenerationDuration() const;
+    unsigned energyRegenerationPower() const;
 
 private:
-    QMap<EFFECT, unsigned> m_effects;
+    QMap<SkillEffect::Type, SkillEffect> m_effects;
 
 };
 

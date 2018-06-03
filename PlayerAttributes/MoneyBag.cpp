@@ -11,6 +11,11 @@ Money MoneyBag::money() const
     return m_money;
 }
 
+void MoneyBag::addMoney(Money money)
+{
+    m_money += money;
+}
+
 bool MoneyBag::isPurchasable(Money cost)
 {
     return (m_money > cost);

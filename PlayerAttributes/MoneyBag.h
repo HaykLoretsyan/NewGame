@@ -12,6 +12,7 @@ public:
 
 
     Money money() const;
+    void addMoney(Money money);
 
     bool isPurchasable(Money cost);
     void purchase(Money cost);

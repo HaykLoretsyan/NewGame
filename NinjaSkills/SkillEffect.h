@@ -15,13 +15,20 @@ public:
         Bleeding,
         Blinding,
         Paralyzing,
-        Sleeping
+        Sleeping,
+        HealthGain,
+        EnergyGain,
+        HealthRegeneration,
+        EnergyRegeneration,
+        DamageProtection
     };
 
 public:
+    SkillEffect();
+
     SkillEffect(Type type,
                 unsigned duration = 1,
-                unsigned level = 1);
+                unsigned power = 1);
 
     Type type() const;
 
@@ -31,8 +38,8 @@ public:
     unsigned duration() const;
     void setDuration(const unsigned &value);
 
-    unsigned level() const;
-    void setLevel(const unsigned &value);
+    unsigned power() const;
+    void setPower(const unsigned &value);
 
 
 private:
@@ -40,7 +47,7 @@ private:
 
     QString m_description;
     unsigned m_duration;
-    unsigned m_level;
+    unsigned m_power;
 };
 
 #endif // SKILLEFFECT_H

@@ -47,7 +47,9 @@ SOURCES += \
     GameScreen.cpp \
     Items/Weapon.cpp \
     Items/Gear.cpp \
-    Items/Supportive.cpp
+    Items/Supportive.cpp \
+    Fight/NinjaState.cpp \
+    Scenes/BattleField.cpp
 
 HEADERS += \
     ResourceManager.h \
@@ -74,6 +76,11 @@ HEADERS += \
     GameScreen.h \
     Items/Weapon.h \
     Items/Gear.h \
-    Items/Supportive.h
+    Items/Supportive.h \
+    Fight/NinjaState.h \
+    Scenes/BattleField.h
 
 FORMS +=
+
+RESOURCES += \
+    resources.qrc

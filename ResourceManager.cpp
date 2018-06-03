@@ -82,6 +82,14 @@ MoneyBag *ResourceManager::moneyBagByAccountName(QString accountName)
     return nullptr;
 }
 
+ItemBag *ResourceManager::itemBagByAccountName(QString accountName)
+{
+    // TODO query player's item bag from database or network by account
+    Q_UNUSED(accountName)
+
+    return nullptr;
+}
+
 void ResourceManager::updateAccountData(Player *player)
 {
     // TODO update data of player through network or database
@@ -99,7 +107,7 @@ void ResourceManager::updateAccountMoney(QString accountName, Money money)
 
 QString ResourceManager::introMovie()
 {
-    return QString("/home/razmik/Pictures/ninjas.gif");
+    return QString(":/Resources/ninjas.gif");
 }
 
 void ResourceManager::initDatabase() throw(ReourceInitException)

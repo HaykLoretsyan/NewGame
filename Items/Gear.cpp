@@ -15,39 +15,46 @@ Gear::Gear(const Gear & other) :
 
 }
 
-void Gear::addEffect(Gear::EFFECT effect, unsigned power)
+void Gear::addEffect(SkillEffect effect)
 {
-    m_effects.insert(effect, power);
+    if(effect.type() != SkillEffect::Type::HealthRegeneration &&
+       effect.type() != SkillEffect::Type::EnergyRegeneration &&
+       effect.type() != SkillEffect::Type::DamageProtection )
+    {
+        return;
+    }
+
+    m_effects.insert(effect.type(), effect);
 }
 
-QMap<Gear::EFFECT, unsigned> Gear::effects() const
+QMap<SkillEffect::Type, SkillEffect> Gear::effects() const
 {
     return m_effects;
 }
 
 unsigned Gear::healthRegeneration() const
 {
-    if(!m_effects.contains(EFFECT::HealthRegeneration)) {
+    if(!m_effects.contains(SkillEffect::Type::HealthRegeneration)) {
         return 0;
     }
 
-    return m_effects[EFFECT::HealthRegeneration];
+    return m_effects[SkillEffect::Type::HealthRegeneration].power();
 }
 
 unsigned Gear::energyRegeneration() const
 {
-    if(!m_effects.contains(EFFECT::EnergyRegeneration)) {
+    if(!m_effects.contains(SkillEffect::Type::EnergyRegeneration)) {
         return 0;
     }
 
-    return m_effects[EFFECT::EnergyRegeneration];
+    return m_effects[SkillEffect::Type::EnergyRegeneration].power();
 }
 
 unsigned Gear::damageProtection() const
 {
-    if(!m_effects.contains(EFFECT::DamageProtection)) {
+    if(!m_effects.contains(SkillEffect::Type::DamageProtection)) {
         return 0;
     }
 
-    return m_effects[EFFECT::DamageProtection];
+    return m_effects[SkillEffect::Type::DamageProtection].power();
 }
