@@ -1,5 +1,5 @@
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#ifndef GAMESCREEN_H
+#define GAMESCREEN_H
 
 #include <QGraphicsView>
 #include <QGraphicsScene>
@@ -7,17 +7,13 @@
 #include "Game.h"
 
 
-namespace Ui {
-class MainWindow;
-}
-
-class MainWindow : public QGraphicsView
+class GameScreen : public QGraphicsView
 {
     Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = 0);
-    ~MainWindow();
+    explicit GameScreen(QWidget *parent = 0);
+    ~GameScreen();
 
 protected:
     /**
@@ -31,4 +27,4 @@ public slots:
 
 };
 
-#endif // MAINWINDOW_H
+#endif // GAMESCREEN_H

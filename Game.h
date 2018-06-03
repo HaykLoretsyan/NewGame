@@ -5,14 +5,13 @@
 #include <QGraphicsScene>
 #include <QMap>
 #include <QString>
-#include <QSettings>
-#include <QRect>
-#include <QApplication>
-#include <QDesktopWidget>
+#include <QHostInfo>
 
 #include "Scenes/Scene.h"
 #include "Scenes/Intro.h"
 #include "Scenes/City.h"
+
+#include "PlayerAttributes/Player.h"
 
 
 class Game : public QObject
@@ -21,6 +20,7 @@ class Game : public QObject
 
 private:
     Game();
+    ~Game();
 
 public:
     static Game& instance() {
@@ -68,6 +68,9 @@ signals:
 
 private:
     QMap<QString, Scene*> m_scenes;
+
+private:
+    Player* m_player;
 };
 
 #endif // SCENEMANAGER_H

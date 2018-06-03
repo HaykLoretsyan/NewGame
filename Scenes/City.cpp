@@ -1,6 +1,7 @@
 #include "City.h"
 
-City::City()
+City::City(Player* player) :
+    m_player(player)
 {
 
 }

@@ -2,7 +2,16 @@
 
 Game::Game()
 {
+    if(!ResourceManager::instance().hasAnyRegisteredAccount()) {
+        ResourceManager::instance().registerAnAccount(QHostInfo::localHostName(), "");
+    }
 
+    m_player = ResourceManager::instance().player();
+}
+
+Game::~Game()
+{
+    ResourceManager::instance().updateAccountData(m_player);
 }
 
 Scene *Game::init()
@@ -24,7 +33,7 @@ void Game::addScene(QString name, Scene *scene)
 Scene *Game::createScene(QString name)
 {
     if(name == "City") {
-        return new City();
+        return new City(m_player);
     }
 
     return nullptr;

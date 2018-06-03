@@ -3,6 +3,7 @@
 
 #include <QtNetwork/QNetworkAccessManager>
 #include <QSqlDatabase>
+#include <QSettings>
 #include <QString>
 
 #include "CustomExceptions.h"
@@ -27,6 +28,11 @@ public:
     void useNetwork();
 
     // API
+    QString accountName();
+    void registerAnAccount(QString username, QString password);
+    bool hasAnyRegisteredAccount() const;
+
+    Player* player();
     Player* playerByAccountName(QString accountName);
     MoneyBag* moneyBagByAccountName(QString accountName);
 

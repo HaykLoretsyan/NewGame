@@ -1,7 +1,7 @@
-#include "Mainwindow.h"
+#include "GameScreen.h"
 #include "ui_mainwindow.h"
 
-MainWindow::MainWindow(QWidget *parent) :
+GameScreen::GameScreen(QWidget *parent) :
     QGraphicsView(parent)
 {
     setWindowState(Qt::WindowFullScreen);
@@ -13,21 +13,21 @@ MainWindow::MainWindow(QWidget *parent) :
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
     connect(&Game::instance(), &Game::sceneChanged,
-            this, &MainWindow::On_sceneChanged);
+            this, &GameScreen::On_sceneChanged);
 
     setScene(Game::instance().init());
 }
 
-MainWindow::~MainWindow()
+GameScreen::~GameScreen()
 {
 }
 
-void MainWindow::closeEvent(QCloseEvent *event)
+void GameScreen::closeEvent(QCloseEvent *event)
 {
     Q_UNUSED(event)
 }
 
-void MainWindow::On_sceneChanged(QGraphicsScene* scene)
+void GameScreen::On_sceneChanged(QGraphicsScene* scene)
 {
     setScene(scene);
 }

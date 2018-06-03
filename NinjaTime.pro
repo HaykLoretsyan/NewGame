@@ -27,7 +27,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-    Mainwindow.cpp \
     ResourceManager.cpp \
     NinjaSkills/Skill.cpp \
     NinjaSkills/SkillEffect.cpp \
@@ -44,10 +43,11 @@ SOURCES += \
     Scenes/Weaponry.cpp \
     Scenes/Scene.cpp \
     Scenes/Intro.cpp \
-    Scenes/City.cpp
+    Scenes/City.cpp \
+    GameScreen.cpp \
+    Items/Weapon.cpp
 
 HEADERS += \
-    Mainwindow.h \
     ResourceManager.h \
     CustomExceptions.h \
     NinjaSkills/Skill.h \
@@ -68,6 +68,8 @@ HEADERS += \
     Scenes/Weaponry.h \
     Scenes/Scene.h \
     Scenes/Intro.h \
-    Scenes/City.h
+    Scenes/City.h \
+    GameScreen.h \
+    Items/Weapon.h
 
 FORMS +=
