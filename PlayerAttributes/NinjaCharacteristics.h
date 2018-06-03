@@ -11,6 +11,9 @@
 
 struct NinjaCharacteristics
 {
+    unsigned health;
+    unsigned energy;
+
     unsigned dodge;
     unsigned accuracy;
     unsigned damageResistance;

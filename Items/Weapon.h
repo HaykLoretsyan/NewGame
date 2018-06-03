@@ -12,9 +12,10 @@ class Weapon : public Item
 {
 public:
     Weapon(QString name, Money cost, QPixmap icon);
+    Weapon(const Weapon & other);
 
     unsigned damage() const;
-    QVector<SkillEffect>& effects();
+    QVector<SkillEffect> effects() const;
 
 private:
     unsigned m_damage;

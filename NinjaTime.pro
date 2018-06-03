@@ -45,7 +45,9 @@ SOURCES += \
     Scenes/Intro.cpp \
     Scenes/City.cpp \
     GameScreen.cpp \
-    Items/Weapon.cpp
+    Items/Weapon.cpp \
+    Items/Gear.cpp \
+    Items/Supportive.cpp
 
 HEADERS += \
     ResourceManager.h \
@@ -70,6 +72,8 @@ HEADERS += \
     Scenes/Intro.h \
     Scenes/City.h \
     GameScreen.h \
-    Items/Weapon.h
+    Items/Weapon.h \
+    Items/Gear.h \
+    Items/Supportive.h
 
 FORMS +=
