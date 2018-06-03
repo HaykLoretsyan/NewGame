@@ -14,6 +14,8 @@ class Player : public QObject
 public:
     Player(QString accountName);
 
+    QString accountName() const;
+
 private:
     NinjaCharacteristics* characteristics;
 

@@ -27,42 +27,47 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-    Fight.cpp \
     Mainwindow.cpp \
-    SceneManager.cpp \
-    PlayerAttributes/Character.cpp \
-    PlayerAttributes/Player.cpp \
+    ResourceManager.cpp \
     NinjaSkills/Skill.cpp \
     NinjaSkills/SkillEffect.cpp \
-    Buildings/Boutique.cpp \
-    Buildings/SkillAcademy.cpp \
-    Buildings/Weaponry.cpp \
-    Buildings/Arena.cpp \
-    ResourceManager.cpp \
-    PlayerAttributes/MoneyBag.cpp \
     Items/Item.cpp \
-    PlayerAttributes/ItemBag.cpp
-
+    Fight/Fight.cpp \
+    PlayerAttributes/Character.cpp \
+    PlayerAttributes/ItemBag.cpp \
+    PlayerAttributes/MoneyBag.cpp \
+    PlayerAttributes/Player.cpp \
+    Game.cpp \
+    Scenes/Arena.cpp \
+    Scenes/Boutique.cpp \
+    Scenes/SkillAcademy.cpp \
+    Scenes/Weaponry.cpp \
+    Scenes/Scene.cpp \
+    Scenes/Intro.cpp \
+    Scenes/City.cpp
 
 HEADERS += \
-    Fight.h \
     Mainwindow.h \
-    SceneManager.h \
-    PlayerAttributes/NinjaCharacteristics.h \
-    PlayerAttributes/Character.h \
-    PlayerAttributes/Player.h \
+    ResourceManager.h \
+    CustomExceptions.h \
     NinjaSkills/Skill.h \
     NinjaSkills/SkillCharacteristics.h \
     NinjaSkills/SkillEffect.h \
-    Buildings/Boutique.h \
-    Buildings/SkillAcademy.h \
-    Buildings/Weaponry.h \
-    Buildings/Arena.h \
-    ResourceManager.h \
-    CustomExceptions.h \
-    PlayerAttributes/MoneyBag.h \
     Items/Item.h \
     Items/Money.h \
-    PlayerAttributes/ItemBag.h
+    Fight/Fight.h \
+    PlayerAttributes/Character.h \
+    PlayerAttributes/ItemBag.h \
+    PlayerAttributes/MoneyBag.h \
+    PlayerAttributes/NinjaCharacteristics.h \
+    PlayerAttributes/Player.h \
+    Game.h \
+    Scenes/Arena.h \
+    Scenes/Boutique.h \
+    Scenes/SkillAcademy.h \
+    Scenes/Weaponry.h \
+    Scenes/Scene.h \
+    Scenes/Intro.h \
+    Scenes/City.h
 
 FORMS +=

@@ -2,25 +2,32 @@
 #include "ui_mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent) :
-    QMainWindow(parent),
-    view(new QGraphicsView(this))
+    QGraphicsView(parent)
 {
     setWindowState(Qt::WindowFullScreen);
+    setStyleSheet("border: 0px;");
+    setWindowFlags(Qt::FramelessWindowHint);
 
-    view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
-    setCentralWidget(view);
+    setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
-    connect(&SceneManager::instance(), &SceneManager::sceneChanged,
+    connect(&Game::instance(), &Game::sceneChanged,
             this, &MainWindow::On_sceneChanged);
+
+    setScene(Game::instance().init());
 }
 
 MainWindow::~MainWindow()
 {
 }
 
+void MainWindow::closeEvent(QCloseEvent *event)
+{
+    Q_UNUSED(event)
+}
+
 void MainWindow::On_sceneChanged(QGraphicsScene* scene)
 {
-    view->setScene(scene);
+    setScene(scene);
 }

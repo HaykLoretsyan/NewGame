@@ -30,7 +30,10 @@ public:
     Player* playerByAccountName(QString accountName);
     MoneyBag* moneyBagByAccountName(QString accountName);
 
+    void updateAccountData(Player* player);
     void updateAccountMoney(QString accountName, Money money);
+
+    QString introMovie();
 
 private:
     void initDatabase() throw(ReourceInitException);

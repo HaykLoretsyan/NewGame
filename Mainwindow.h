@@ -1,30 +1,33 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QMainWindow>
 #include <QGraphicsView>
 #include <QGraphicsScene>
 
-#include "SceneManager.h"
+#include "Game.h"
 
 
 namespace Ui {
 class MainWindow;
 }
 
-class MainWindow : public QMainWindow
+class MainWindow : public QGraphicsView
 {
     Q_OBJECT
 
 public:
     explicit MainWindow(QWidget *parent = 0);
-    ~MainWindow();    
+    ~MainWindow();
+
+protected:
+    /**
+     * @brief closeEvent save any progress on close
+     * @param event
+     */
+    void closeEvent(QCloseEvent* event) override;
 
 public slots:
     void On_sceneChanged(QGraphicsScene *scene);
-
-private:
-    QGraphicsView* view;
 
 };
 

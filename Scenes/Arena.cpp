@@ -5,3 +5,13 @@ Arena::Arena(Player *player) :
 {
 
 }
+
+void Arena::activateScene()
+{
+
+}
+
+void Arena::deactivateScene()
+{
+
+}

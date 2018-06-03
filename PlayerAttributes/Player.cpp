@@ -5,3 +5,8 @@ Player::Player(QString accountName) :
 {
 
 }
+
+QString Player::accountName() const
+{
+    return m_account_name;
+}

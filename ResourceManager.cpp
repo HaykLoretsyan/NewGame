@@ -48,6 +48,11 @@ void ResourceManager::updateAccountMoney(QString accountName, Money money)
     throw IncompatibleWithServerException();
 }
 
+QString ResourceManager::introMovie()
+{
+    return QString("/home/razmik/Pictures/ninjas.gif");
+}
+
 void ResourceManager::initDatabase() throw(ReourceInitException)
 {
     if(!m_db.isValid()) {
