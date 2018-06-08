@@ -43,6 +43,8 @@ public:
 
     QString introMovie();
 
+    QNetworkAccessManager* networkManager() const;
+
 private:
     void initDatabase() throw(ReourceInitException);
 

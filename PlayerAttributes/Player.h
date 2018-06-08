@@ -19,15 +19,26 @@ class Player : public QObject
     Q_OBJECT
 
 public:
+
+    enum class Affiliation
+    {
+        Self,
+        Network,
+        Bot
+    };
+
+public:
     Player(QString accountName,
            Character* character,
            NinjaCharacteristics* characteristics,
            Gear* gear,
            Weapon* weapon,
-           bool isBot = true);
+           Affiliation affiliation = Affiliation::Self);
 
     QString accountName() const;
     Character* character() const;
+
+    Player::Affiliation affiliation() const;
 
     NinjaCharacteristics* characteristics() const;
 
@@ -52,7 +63,7 @@ private:
     Weapon* m_weapon;
 
 private:
-    bool m_isBot;
+    Affiliation m_affiliation;
 };
 
 #endif // PLAYER_H

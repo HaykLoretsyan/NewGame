@@ -1,17 +1,24 @@
 #include "BattleField.h"
 
-BattleField::BattleField(Fight* fight) :
-    m_fight(fight)
+BattleField::BattleField()
 {
+}
 
+void BattleField::activateCharacter(QString characterName)
+{
+    Q_UNUSED(characterName)
+}
+
+void BattleField::takeAction(FightAction *action)
+{
+    Q_UNUSED(action)
 }
 
 void BattleField::activateScene()
 {
-    m_fight->start();
+    emit started();
 }
 
 void BattleField::deactivateScene()
 {
-    m_fight->end();
 }

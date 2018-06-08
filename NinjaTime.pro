@@ -48,8 +48,12 @@ SOURCES += \
     Items/Weapon.cpp \
     Items/Gear.cpp \
     Items/Supportive.cpp \
-    Fight/NinjaState.cpp \
-    Scenes/BattleField.cpp
+    Scenes/BattleField.cpp \
+    Fight/FightController.cpp \
+    Fight/FightNetworkController.cpp \
+    Fight/FightLocalController.cpp \
+    Fight/FightAction.cpp \
+    Fight/Ninja.cpp
 
 HEADERS += \
     ResourceManager.h \
@@ -77,8 +81,12 @@ HEADERS += \
     Items/Weapon.h \
     Items/Gear.h \
     Items/Supportive.h \
-    Fight/NinjaState.h \
-    Scenes/BattleField.h
+    Scenes/BattleField.h \
+    Fight/FightController.h \
+    Fight/FightNetworkController.h \
+    Fight/FightLocalController.h \
+    Fight/FightAction.h \
+    Fight/Ninja.h
 
 FORMS +=
 

@@ -11,22 +11,30 @@
 #include "Items/Gear.h"
 
 
-class NinjaState : public QObject
+class Ninja : public QObject
 {
     Q_OBJECT
 
 public:
     enum class Side
     {
-        RED,
-        BLUE
+        Red,
+        Blue
+    };
+
+    enum class Control
+    {
+        Self,
+        Network,
+        Bot
     };
 
 public:
-    NinjaState(NinjaCharacteristics* characteristics,
-               Weapon* weapon,
-               Gear* gear,
-               Side side);
+    Ninja(NinjaCharacteristics* characteristics,
+          Weapon* weapon,
+          Gear* gear,
+          Side side,
+          Control control = Control::Self);
 
     /**
      * @brief proceedTurn Do all necesserary staff before
@@ -78,10 +86,22 @@ public:
     void incrementCurrentPosition();
 
     /**
+     * @brief characteristics of the ninja
+     * @return
+     */
+    NinjaCharacteristics* characteristics() const;
+
+    /**
      * @brief side team of the ninja (red or blue)
      * @return
      */
     Side side() const;
+
+    /**
+     * @brief controlling subject of the ninja
+     * @return
+     */
+    Control control() const;
 
 signals:
     void isDead();
@@ -121,6 +141,7 @@ private:
 private:
     NinjaCharacteristics* m_characteristics;
     Side m_side;
+    Control m_control;
 };
 
 #endif // NINJASTATE_H

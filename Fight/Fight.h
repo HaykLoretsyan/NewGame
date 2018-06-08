@@ -2,12 +2,20 @@
 #define FIGHT_H
 
 #include <QObject>
+#include <QString>
 #include <QMap>
+#include <QTimer>
+
+#include "Scenes/BattleField.h"
 
 #include "PlayerAttributes/Player.h"
 #include "NinjaSkills/Skill.h"
 #include "NinjaSkills/SkillEffect.h"
-#include "NinjaState.h"
+
+#include "FightAction.h"
+#include "FightNetworkController.h"
+#include "FightLocalController.h"
+#include "Ninja.h"
 
 
 class Fight : public QObject
@@ -15,18 +23,36 @@ class Fight : public QObject
     Q_OBJECT
 
 public:
-    Fight(QVector<Player*> firstTeam, QVector<Player*> secondTeam);
+    Fight(BattleField* battleField,
+          QVector<Player*> firstTeam,
+          QVector<Player*> secondTeam,
+          bool isOnlineFight = false);
 
-    QMap<Player*, NinjaState*> allPlayers() const;
+    QMap<QString, Ninja*> allNinjas() const;
+
+    unsigned timeToHit() const;
 
 public slots:
     void start();
-    void end();
+    void resume();
+    void finish();
+
+    void onTimer();
+
+    void onAction(FightAction* action);
 
 private:
-    QMap<Player*, NinjaState*> m_allPlayers;
+    void createController(bool isOnlineFight);
 
-    unsigned timeToHit;
+private:
+    BattleField* m_battleField;
+    FightController* m_controller;
+
+    QMap<QString, Ninja*> m_allNinjas;
+    unsigned m_timeToHit;
+
+private:
+    QTimer* m_timer;
 
 };
 

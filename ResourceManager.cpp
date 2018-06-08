@@ -110,6 +110,11 @@ QString ResourceManager::introMovie()
     return QString(":/Resources/ninjas.gif");
 }
 
+QNetworkAccessManager *ResourceManager::networkManager() const
+{
+    return m_networkManager;
+}
+
 void ResourceManager::initDatabase() throw(ReourceInitException)
 {
     if(!m_db.isValid()) {

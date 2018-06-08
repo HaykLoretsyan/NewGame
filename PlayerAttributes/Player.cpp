@@ -5,13 +5,13 @@ Player::Player(QString accountName,
                NinjaCharacteristics *characteristics,
                Gear *gear,
                Weapon *weapon,
-               bool isBot) :
+               Affiliation affiliation) :
     m_account_name(accountName),
     m_character(character),
     m_characteristics(characteristics),
     m_gear(gear),
     m_weapon(weapon),
-    m_isBot(isBot)
+    m_affiliation(affiliation)
 {
 
 }
@@ -24,6 +24,11 @@ QString Player::accountName() const
 Character *Player::character() const
 {
     return m_character;
+}
+
+Player::Affiliation Player::affiliation() const
+{
+    return m_affiliation;
 }
 
 NinjaCharacteristics *Player::characteristics() const

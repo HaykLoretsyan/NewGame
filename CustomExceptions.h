@@ -33,12 +33,26 @@ public:
     IncompatibleWithServerException() {}
 
 public:
-public:
     void raise() const { throw *this; }
     IncompatibleWithServerException *clone() const { return new IncompatibleWithServerException(*this); }
 
     QString message() const {
         return QString("Data incompatible with server");
+    }
+};
+
+
+class NetworkingNotAvailableException : public QException
+{
+public:
+    NetworkingNotAvailableException() {}
+
+public:
+    void raise() const { throw *this; }
+    NetworkingNotAvailableException *clone() const { return new NetworkingNotAvailableException(*this); }
+
+    QString message() const {
+        return QString("Networking is disabled");
     }
 };
 

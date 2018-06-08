@@ -1,9 +1,10 @@
-#include "NinjaState.h"
+#include "Ninja.h"
 
-NinjaState::NinjaState(NinjaCharacteristics *characteristics,
-                       Weapon *weapon,
-                       Gear *gear,
-                       Side side) :
+Ninja::Ninja(NinjaCharacteristics *characteristics,
+             Weapon *weapon,
+             Gear *gear,
+             Side side,
+             Control control) :
     m_isAlive(true),
     m_weapon(weapon),
     m_gear(gear),
@@ -14,12 +15,13 @@ NinjaState::NinjaState(NinjaCharacteristics *characteristics,
     m_currentPosition(0),
 
     m_characteristics(characteristics),
-    m_side(side)
+    m_side(side),
+    m_control(control)
 {
 
 }
 
-void NinjaState::proceedTurn()
+void Ninja::proceedTurn()
 {
     for(SkillEffect& effect : m_currentConditions) {
         // TODO proceed every effect
@@ -36,7 +38,7 @@ void NinjaState::proceedTurn()
 }
 
 
-void NinjaState::takeAHitByWeapon(Weapon weapon)
+void Ninja::takeAHitByWeapon(Weapon weapon)
 {
     m_currentHealth -= weapon.damage();
 
@@ -47,7 +49,7 @@ void NinjaState::takeAHitByWeapon(Weapon weapon)
     m_currentConditions += weapon.effects();
 }
 
-void NinjaState::takeAHitBySkill(Skill skill)
+void Ninja::takeAHitBySkill(Skill skill)
 {
     m_currentHealth -= skill.characteristics().damage;
 
@@ -58,39 +60,49 @@ void NinjaState::takeAHitBySkill(Skill skill)
     m_currentConditions += skill.characteristics().rivalEffects;
 }
 
-QVector<Skill> NinjaState::consumableSkills() const
+QVector<Skill> Ninja::consumableSkills() const
 {
     return m_availableSkills;
 }
 
-void NinjaState::consumeASkill(Skill skill)
+void Ninja::consumeASkill(Skill skill)
 {
     m_currentEnergy -= skill.characteristics().energyConsume;
 
     m_currentConditions += skill.characteristics().selfEffects;
 }
 
-unsigned NinjaState::position() const
+unsigned Ninja::position() const
 {
     return m_currentPosition;
 }
 
-void NinjaState::resetCurrentPosition()
+void Ninja::resetCurrentPosition()
 {
     m_currentPosition = 0;
 }
 
-void NinjaState::incrementCurrentPosition()
+void Ninja::incrementCurrentPosition()
 {
     m_currentPosition += m_currentSpeed;
 }
 
-NinjaState::Side NinjaState::side() const
+NinjaCharacteristics *Ninja::characteristics() const
+{
+    return m_characteristics;
+}
+
+Ninja::Side Ninja::side() const
 {
     return m_side;
 }
 
-bool NinjaState::skillIsConsumable(Skill& skill) const
+Ninja::Control Ninja::control() const
+{
+    return m_control;
+}
+
+bool Ninja::skillIsConsumable(Skill& skill) const
 {
     if(m_currentEnergy > skill.characteristics().energyConsume) {
         return true;
@@ -99,7 +111,7 @@ bool NinjaState::skillIsConsumable(Skill& skill) const
     return false;
 }
 
-bool NinjaState::checkIfIsAlive()
+bool Ninja::checkIfIsAlive()
 {
     if(m_currentHealth <= 0) {
         m_isAlive = false;
