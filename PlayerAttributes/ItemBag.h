@@ -13,6 +13,7 @@ public:
     ItemBag();
 
     void addItem(Item* item);
+    void addItems(QVector<Item*> items);
     Money sellItem(int id);
 
 private:

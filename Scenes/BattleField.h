@@ -7,6 +7,7 @@
 
 #include "PlayerAttributes/Player.h"
 #include "Fight/FightAction.h"
+#include "Fight/Award.h"
 
 
 class BattleField : public Scene
@@ -20,8 +21,9 @@ public:
     void activateCharacter(QString characterName);
     void takeAction(FightAction* action);
 
-    // Scene interface
-public:
+    void showAward(Award award);
+
+public: // Scene interface
     void activateScene() override;
     void deactivateScene() override;
 
@@ -30,7 +32,7 @@ signals:
     void resumed();
     void finished();
 
-    void actionRequest(FightAction* action);
+    void actionRequest(FightActionRequest action);
 };
 
 #endif // BATTLEFIELD_H

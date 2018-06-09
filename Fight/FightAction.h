@@ -11,15 +11,14 @@
 
 struct FightActionRequest
 {
-    Ninja* doer;
-    Ninja* receiver;
+    QString doer;
+    QString receiver;
     Skill* skill;
 };
 
-
-class FightAction
+struct Affection
 {
-    enum class AffectionType
+    enum class Type
     {
         SkillConsumed,
         WeaponUsed,
@@ -31,6 +30,11 @@ class FightAction
         NegativeBuffed
     };
 
+    QMap<Type, int> allAffections;
+};
+
+class FightAction
+{
 public:
     FightAction();
     FightAction(FightActionRequest request);
@@ -38,10 +42,10 @@ public:
 
     void affectNinjaIfRequired(QString name, Ninja* ninja);
 
-    QMap<QString, AffectionType> affectedNinjas() const;
+    QMap<QString, Affection> affectedNinjas() const;
 
 private:
-    QMap<QString, AffectionType> m_affectedNinjas;
+    QMap<QString, Affection> m_affectedNinjas;
 };
 
 #endif // FIGHTACTION_H

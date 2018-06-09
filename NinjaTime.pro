@@ -53,7 +53,9 @@ SOURCES += \
     Fight/FightNetworkController.cpp \
     Fight/FightLocalController.cpp \
     Fight/FightAction.cpp \
-    Fight/Ninja.cpp
+    Fight/Ninja.cpp \
+    Fight/BotController.cpp \
+    Fight/AwardManager.cpp
 
 HEADERS += \
     ResourceManager.h \
@@ -86,7 +88,10 @@ HEADERS += \
     Fight/FightNetworkController.h \
     Fight/FightLocalController.h \
     Fight/FightAction.h \
-    Fight/Ninja.h
+    Fight/Ninja.h \
+    Fight/BotController.h \
+    Fight/AwardManager.h \
+    Fight/Award.h
 
 FORMS +=
 

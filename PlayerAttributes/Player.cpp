@@ -36,6 +36,16 @@ NinjaCharacteristics *Player::characteristics() const
     return m_characteristics;
 }
 
+MoneyBag *Player::moneyBag() const
+{
+    return m_moneyBag;
+}
+
+ItemBag *Player::itemBag() const
+{
+    return m_itemBag;
+}
+
 Gear *Player::gear() const
 {
     return m_gear;

@@ -90,6 +90,14 @@ ItemBag *ResourceManager::itemBagByAccountName(QString accountName)
     return nullptr;
 }
 
+Item *ResourceManager::createItemByName(QString itemName)
+{
+    // TODO get Item attributes by itemName, create item and return
+    Q_UNUSED(itemName)
+
+    return nullptr;
+}
+
 void ResourceManager::updateAccountData(Player *player)
 {
     // TODO update data of player through network or database

@@ -56,4 +56,19 @@ public:
     }
 };
 
+
+class IllegalFightCreation : public QException
+{
+public:
+    IllegalFightCreation() {}
+
+public:
+    void raise() const { throw *this; }
+    IllegalFightCreation *clone() const { return new IllegalFightCreation(*this); }
+
+    QString message() const {
+        return QString("Can't create fight");
+    }
+};
+
 #endif // CUSTOMEXCEPTIONS_H

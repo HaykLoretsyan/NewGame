@@ -21,7 +21,7 @@ void FightAction::affectNinjaIfRequired(QString name, Ninja* ninja)
     Q_UNUSED(ninja)
 }
 
-QMap<QString, FightAction::AffectionType> FightAction::affectedNinjas() const
+QMap<QString, Affection> FightAction::affectedNinjas() const
 {
     return m_affectedNinjas;
 }

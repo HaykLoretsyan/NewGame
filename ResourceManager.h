@@ -38,6 +38,8 @@ public:
     MoneyBag* moneyBagByAccountName(QString accountName);
     ItemBag* itemBagByAccountName(QString accountName);
 
+    Item* createItemByName(QString itemName);
+
     void updateAccountData(Player* player);
     void updateAccountMoney(QString accountName, Money money);
 

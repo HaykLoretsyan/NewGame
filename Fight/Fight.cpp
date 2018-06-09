@@ -4,8 +4,12 @@ Fight::Fight(BattleField *battleField,
              QVector<Player *> firstTeam,
              QVector<Player *> secondTeam,
              bool isOnlineFight) :
-    m_battleField(battleField)
+    m_self(nullptr),
+    m_battleField(battleField),
+    m_timer(nullptr),
+    m_awardManager(nullptr)
 {
+    // Initializing first(red) team ninjas
     for(Player* player : firstTeam) {
         Ninja* ninja = new Ninja(player->characteristics(),
                                  player->weapon(),
@@ -15,8 +19,13 @@ Fight::Fight(BattleField *battleField,
                                  );
 
         m_allNinjas.insert(player->accountName(), ninja);
+
+        if(player->affiliation() == Player::Affiliation::Self) {
+            m_self = player;
+        }
     }
 
+    // Initializing second(blue) team ninjas
     for(Player* player : secondTeam) {
         Ninja* ninja = new Ninja(player->characteristics(),
                                  player->weapon(),
@@ -26,6 +35,14 @@ Fight::Fight(BattleField *battleField,
                                  );
 
         m_allNinjas.insert(player->accountName(), ninja);
+
+        if(player->affiliation() == Player::Affiliation::Self) {
+            m_self = player;
+        }
+    }
+
+    if(m_self == nullptr) {
+        throw IllegalFightCreation();
     }
 
     createController(isOnlineFight);
@@ -33,6 +50,16 @@ Fight::Fight(BattleField *battleField,
     connect(battleField, &BattleField::started, this, &Fight::start);
     connect(battleField, &BattleField::resumed, this, &Fight::resume);
     connect(battleField, &BattleField::finished, this, &Fight::finish);
+}
+
+Fight::~Fight()
+{
+    for(auto it = m_allNinjas.begin(); it != m_allNinjas.end(); ++it) {
+        delete it.value();
+    }
+
+    delete m_timer;
+    delete m_awardManager;
 }
 
 QMap<QString, Ninja *> Fight::allNinjas() const
@@ -43,6 +70,11 @@ QMap<QString, Ninja *> Fight::allNinjas() const
 unsigned Fight::timeToHit() const
 {
     return m_timeToHit;
+}
+
+AwardManager *Fight::awardManager() const
+{
+    return m_awardManager;
 }
 
 void Fight::start()
@@ -63,7 +95,16 @@ void Fight::resume()
 
 void Fight::finish()
 {
-    // TODO Award management
+    if(m_awardManager == nullptr) {
+        m_battleField->showAward(Award());
+    }
+
+    Award award(m_awardManager->generateAward());
+
+    m_self->moneyBag()->addMoney(award.money);
+    m_self->itemBag()->addItems(award.items);
+
+    m_battleField->showAward(award);
 }
 
 void Fight::onTimer()

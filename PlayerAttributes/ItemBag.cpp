@@ -14,6 +14,11 @@ void ItemBag::addItem(Item* item)
     m_items.push_back(item);
 }
 
+void ItemBag::addItems(QVector<Item *> items)
+{
+    m_items += items;
+}
+
 Money ItemBag::sellItem(int id)
 {
     Money result;
