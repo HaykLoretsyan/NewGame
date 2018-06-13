@@ -16,6 +16,7 @@ public:
 
 signals:
     void changeScene(QString sceneName);
+    void addScene(QString name, Scene* scene);
 };
 
 #endif // SCENE_H

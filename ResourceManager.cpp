@@ -23,6 +23,11 @@ void ResourceManager::useNetwork()
     }
 }
 
+bool ResourceManager::networkUsed() const
+{
+    return m_networkUsed;
+}
+
 QString ResourceManager::accountName()
 {
     QString result;
@@ -72,6 +77,13 @@ Player *ResourceManager::playerByAccountName(QString accountName)
     }
 
     return nullptr;
+}
+
+QVector<Player *> ResourceManager::botsForLevel(unsigned level)
+{
+    Q_UNUSED(level)
+
+    return QVector<Player*>();
 }
 
 MoneyBag *ResourceManager::moneyBagByAccountName(QString accountName)

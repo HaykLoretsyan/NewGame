@@ -3,6 +3,8 @@
 
 #include <QObject>
 #include <QVector>
+#include <QMap>
+#include <QString>
 
 #include "Fight/FightAction.h"
 #include "Fight/Ninja.h"
@@ -13,8 +15,8 @@ class FightController : public QObject
     Q_OBJECT
 
 public:
-    FightController(QVector<Ninja*> ninjas);
-    ~FightController();
+    FightController(QMap<QString, Ninja*> ninjas);
+    virtual ~FightController() = 0;
 
     virtual void activate(Ninja* ninja) = 0;
 
@@ -28,9 +30,12 @@ public slots:
 signals:
     void action(FightAction* action);
 
-private:
+protected:
     QVector<FightAction*> m_allActions;
-    QVector<Ninja*> m_allNinjas;
+    QMap<QString, Ninja*> m_allNinjas;
+
+protected:
+    Ninja* m_self;
 };
 
 #endif // GIGHTCONTROLLER_H

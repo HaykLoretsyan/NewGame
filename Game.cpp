@@ -26,6 +26,8 @@ void Game::addScene(QString name, Scene *scene)
 {
     connect(scene, &Scene::changeScene,
             this, &Game::changeToScene);
+    connect(scene, &Scene::addScene,
+            this, &Game::addTheScene);
 
     m_scenes.insert(name, scene);
 }
@@ -56,4 +58,9 @@ void Game::changeToScene(QString sceneName)
     }
 
     emit sceneChanged(m_scenes[sceneName]);
+}
+
+void Game::addTheScene(QString sceneName, Scene *scene)
+{
+    m_scenes.insert(sceneName, scene);
 }

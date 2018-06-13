@@ -47,14 +47,14 @@ public:
      *        by weapon
      * @param weapon
      */
-    void takeAHitByWeapon(Weapon weapon);
+    void takeAHitByWeapon(Weapon weapon, bool directHit = true);
 
     /**
      * @brief takeAHitBySkill called when another ninja attacked
      *        by skill
      * @param skill
      */
-    void takeAHitBySkill(Skill skill);
+    void takeAHitBySkill(Skill skill, bool directHit = true);
 
     /**
      * @brief consumableSkills skills that are available with

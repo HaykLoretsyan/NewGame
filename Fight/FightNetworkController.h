@@ -2,12 +2,13 @@
 #define FIGHTNETWORKCONTROLLER_H
 
 #include "FightController.h"
+#include "BotController.h"
 
 
 class FightNetworkController : public FightController
 {
 public:
-    FightNetworkController(QVector<Ninja*> ninjas);
+    FightNetworkController(QMap<QString, Ninja*> ninjas);
 
     // FightController interface
 public:

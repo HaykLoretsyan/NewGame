@@ -42,6 +42,13 @@ public slots:
      */
     void changeToScene(QString sceneName);
 
+    /**
+     * @brief addTheScene adding scene with sceneName to scenes' list
+     * @param sceneName
+     * @param scene
+     */
+    void addTheScene(QString sceneName, Scene *scene);
+
 private:
     /**
      * @brief addScene adding new scene with name 'name'

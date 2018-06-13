@@ -1,6 +1,6 @@
 #include "FightNetworkController.h"
 
-FightNetworkController::FightNetworkController(QVector<Ninja *> ninjas) : FightController(ninjas)
+FightNetworkController::FightNetworkController(QMap<QString, Ninja *> ninjas) : FightController(ninjas)
 {
 
 }

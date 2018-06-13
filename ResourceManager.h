@@ -28,6 +28,8 @@ public:
     void useDatabase();
     void useNetwork();
 
+    bool networkUsed() const;
+
     // API
     QString accountName();
     void registerAnAccount(QString username, QString password);
@@ -35,6 +37,7 @@ public:
 
     Player* player();
     Player* playerByAccountName(QString accountName);
+    QVector<Player*> botsForLevel(unsigned level);
     MoneyBag* moneyBagByAccountName(QString accountName);
     ItemBag* itemBagByAccountName(QString accountName);
 

@@ -30,6 +30,7 @@ public:
 public:
     Player(QString accountName,
            Character* character,
+           unsigned level,
            NinjaCharacteristics* characteristics,
            Gear* gear,
            Weapon* weapon,
@@ -37,6 +38,7 @@ public:
 
     QString accountName() const;
     Character* character() const;
+    unsigned level() const;
 
     Player::Affiliation affiliation() const;
 
@@ -53,6 +55,7 @@ public:
 private:
     QString m_account_name;
     Character* m_character;
+    unsigned m_level;
 
     NinjaCharacteristics* m_characteristics;
 

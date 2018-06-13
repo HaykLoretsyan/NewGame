@@ -43,9 +43,11 @@ public:
     void affectNinjaIfRequired(QString name, Ninja* ninja);
 
     QMap<QString, Affection> affectedNinjas() const;
+    FightActionRequest request() const;
 
 private:
     QMap<QString, Affection> m_affectedNinjas;
+    FightActionRequest m_request;
 };
 
 #endif // FIGHTACTION_H

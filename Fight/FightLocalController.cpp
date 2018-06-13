@@ -1,18 +1,34 @@
 #include "FightLocalController.h"
 
-FightLocalController::FightLocalController(QVector<Ninja *> ninjas) : FightController(ninjas)
+FightLocalController::FightLocalController(QMap<QString, Ninja *> ninjas) : FightController(ninjas)
 {
+    m_botController = new BotController();
+}
 
+FightLocalController::~FightLocalController()
+{
+    delete m_botController;
 }
 
 void FightLocalController::activate(Ninja *ninja)
 {
-    Q_UNUSED(ninja)
+    switch(ninja->control())
+    {
+    case Ninja::Control::Bot:
+        break;
+    case Ninja::Control::Self:
+        break;
+    default:
+        throw NetworkingNotAvailableException();
+        break;
+    }
 }
 
 void FightLocalController::selfRequestHandler(FightActionRequest request)
 {
-    Q_UNUSED(request)
+    FightAction* act = new FightAction(request);
+
+    emit action(act);
 }
 
 void FightLocalController::networkActionHandler(FightAction *action)
@@ -20,4 +36,9 @@ void FightLocalController::networkActionHandler(FightAction *action)
     Q_UNUSED(action)
 
     throw NetworkingNotAvailableException();
+}
+
+void FightLocalController::botActionHandler(FightAction *action)
+{
+    Q_UNUSED(action)
 }

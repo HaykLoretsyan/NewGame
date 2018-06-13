@@ -111,6 +111,9 @@ void Fight::onTimer()
 {
     for(auto it = m_allNinjas.begin(); it != m_allNinjas.end(); ++it) {
         it.value()->incrementCurrentPosition();
+        double progress = static_cast<double>(timeToHit()) / it.value()->position();
+
+        m_battleField->changeCharacterProgress(it.key(), progress);
 
         if(it.value()->position() >= timeToHit()) {
             if(m_timer->isActive()) {
@@ -142,11 +145,10 @@ void Fight::createController(bool isOnlineFight)
     m_timeToHit = 10 * maxSpeed;
 
     if(isOnlineFight) {
-        m_controller = new FightNetworkController(QVector<Ninja*>::fromList(m_allNinjas.values()));
+        m_controller = new FightNetworkController(m_allNinjas);
     }
-    else
-    {
-        m_controller = new FightLocalController(QVector<Ninja*>::fromList(m_allNinjas.values()));
+    else {
+        m_controller = new FightLocalController(m_allNinjas);
     }
 
     connect(m_controller, &FightController::action, this, &Fight::onAction);

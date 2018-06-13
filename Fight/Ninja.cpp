@@ -38,26 +38,32 @@ void Ninja::proceedTurn()
 }
 
 
-void Ninja::takeAHitByWeapon(Weapon weapon)
+void Ninja::takeAHitByWeapon(Weapon weapon, bool directHit)
 {
-    m_currentHealth -= weapon.damage();
+    if(directHit)
+    {
+        m_currentHealth -= weapon.damage();
 
-    if(!checkIfIsAlive()) {
-        return;
+        if(!checkIfIsAlive()) {
+            return;
+        }
+
+        m_currentConditions += weapon.effects();
     }
-
-    m_currentConditions += weapon.effects();
 }
 
-void Ninja::takeAHitBySkill(Skill skill)
+void Ninja::takeAHitBySkill(Skill skill, bool directHit)
 {
-    m_currentHealth -= skill.characteristics().damage;
+    if(directHit)
+    {
+        m_currentHealth -= skill.characteristics().damage;
 
-    if(!checkIfIsAlive()) {
-        return;
+        if(!checkIfIsAlive()) {
+            return;
+        }
+
+        m_currentConditions += skill.characteristics().rivalEffects;
     }
-
-    m_currentConditions += skill.characteristics().rivalEffects;
 }
 
 QVector<Skill> Ninja::consumableSkills() const

@@ -15,10 +15,13 @@ class BattleField : public Scene
     Q_OBJECT
 
 public:
-    BattleField();
+    BattleField(QVector<Player*> firstTeam,
+                QVector<Player*> secondTeam,
+                QString fightPlace);
 
 public:
     void activateCharacter(QString characterName);
+    void changeCharacterProgress(QString characterName, double percent);
     void takeAction(FightAction* action);
 
     void showAward(Award award);
@@ -33,6 +36,10 @@ signals:
     void finished();
 
     void actionRequest(FightActionRequest action);
+
+private:
+    QVector<Player*> m_firstTeam;
+    QVector<Player*> m_secondTeam;
 };
 
 #endif // BATTLEFIELD_H

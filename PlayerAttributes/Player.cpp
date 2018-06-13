@@ -2,12 +2,14 @@
 
 Player::Player(QString accountName,
                Character *character,
+               unsigned level,
                NinjaCharacteristics *characteristics,
                Gear *gear,
                Weapon *weapon,
                Affiliation affiliation) :
     m_account_name(accountName),
     m_character(character),
+    m_level(level),
     m_characteristics(characteristics),
     m_gear(gear),
     m_weapon(weapon),
@@ -24,6 +26,11 @@ QString Player::accountName() const
 Character *Player::character() const
 {
     return m_character;
+}
+
+unsigned Player::level() const
+{
+    return m_level;
 }
 
 Player::Affiliation Player::affiliation() const
